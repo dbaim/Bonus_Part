@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSCI 341</title>
+</head>
+<body>
+  <center>
+    <h1>CSCI 341 Bonus Assignment</h1>
+    <h3>Made by Dias Baimukhanov (ID:201941183)</h3>
+    <hr/>
+
+    <table border="1">
+        <tr>
+            <th>Country</th>
+            <th>Population</th>
+        </tr>
+        {% for result in country %}
+        <tr>
+            <td>{{result.cname}}</td>
+            <td>{{result.population}}</td>
+            <td><a href="edit/{{result.cname}}">Edit</a></td>
+            <td><a href="delete/{{result.cname}}" onclick="Are you sure you want to delete it?">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+      <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+        </tr>
+        {% for result in disease_type %}
+        <tr>
+            <td>{{result.id}}</td>
+            <td>{{result.description}}</td>
+            <td><a href="edit/{{result1.id}}">Edit</a></td>
+            <td><a href="delete/{{result1.id}}" onclick="Are you sure you want to delete it?">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+
+      <table border="1">
+        <tr>
+            <th>Disease Code</th>
+            <th>Pathogen</th>
+            <th>Description</th>
+            <th>ID</th>
+        </tr>
+        {% for result in disease %}
+        <tr>
+            <td>{{result.disease_code}}</td>
+            <td>{{result.pathogen}}</td>
+            <td>{{result.description}}</td>
+            <td>{{result.id}}</td>
+            <td><a href="edit/{{result.id}}">Edit</a></td>
+            <td><a href="delete/{{result.id}}" onclick="Are you sure you want to delete it?">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+
+  </center>
+</body>
+</html>
