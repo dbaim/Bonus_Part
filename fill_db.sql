@@ -12,18 +12,18 @@ INSERT INTO DiseaseType (id, description) VALUES
 
 
 INSERT INTO Country (cname, population) VALUES
-("Austria",	9000000),
-("China",	1439000000),
-("France",	65000000),
-("Hungary",	9600000),
-("Kazakhstan",	18000000),
-("Mongolia",	3278000),
-("North Korea",	25000000),
-("Russia",	145000000),
-("South Korea",	51000000),
-("Turkey",	85000000),
-("UK",	67000000),
-("USA",	331000000);
+('Austria',	9000000),
+('China',	1439000000),
+('France',	65000000),
+('Hungary',	9600000),
+('Kazakhstan',	18000000),
+('Mongolia',	3278000),
+('North Korea',	25000000),
+('Russia',	145000000),
+('South Korea',	51000000),
+('Turkey',	85000000),
+('UK',	67000000),
+('USA',	331000000);
 
 INSERT INTO Disease (disease_code, pathogen, description, id) VALUES
 ('cancer', 'cell function', 'lethal illness', 1),
@@ -46,22 +46,22 @@ INSERT INTO Discover (cname, disease_code, first_enc_date) VALUES
 ('South Korea', 'HIV', '2006-02-23'),
 ('North Korea', 'AIDS', '2006-02-24'),
 ('Turkey', 'tetanus', '2006-02-27'),
-("Austria",	"angina",	"1800-02-15");
+('Austria',	'angina',	'1800-02-15');
 
 
 INSERT INTO Users (email, name, surname, salary, phone, cname) VALUES
-("bahidam920@adroh.com",	"Demar",	"Derozan",	64356,	"4324213",	"China"),
-("facikif348@3mkz.com",	"Kawhi",	"Leonard",	63456,	"4132234",	"USA"),
-("fajoxe6837@abudat.com",	"Alla",	"Pugacheva",	4356,	"24314323",	"Russia"),
-("givomob249@3mkz.com",	"Walter",	"White",	3465,	"423142134",	"France"),
-("hipare5882@adroh.com",	"Clementine",	"Johnson",	546345,	"34252335443",	"UK"),
-("jobin47996@3mkz.com",	"Cecil",	"Adams",	4484,	"94389023",	"Kazakhstan"),
-("livato7934@3mkz.com",	"Jake",	"Gyllenhaal",	63456,	"423421111",	"South Korea"),
-("repey86866@3mkz.com",	"Stephen",	"Curry",	63456,	"421421342",	"Turkey"),
-("sisoja4145@adroh.com",	"Frank",	"Ocean",	63456,	"4234234",	"North Korea"),
-("tocamo3972@24rumen.com",	"Gustavo",	"Fring",	63456,	"42342",	"Mongolia"),
-("user.surname1@mail.kz",	"Skyler",	"White",	500,	"88005553535",	"USA"),
-("user.surname2@mail.kz",	"Walter Jr.",	"White",	500,	"88005553536",	"USA");
+('bahidam920@adroh.com',	'Demar',	'Derozan',	64356,	'4324213',	'China'),
+('facikif348@3mkz.com',	'Kawhi',	'Leonard',	63456,	'4132234',	'USA'),
+('fajoxe6837@abudat.com',	'Alla',	'Pugacheva',	4356,	'24314323',	'Russia'),
+('givomob249@3mkz.com',	'Walter',	'White',	3465,	'423142134',	'France'),
+('hipare5882@adroh.com',	'Clementine',	'Johnson',	546345,	'34252335443',	'UK'),
+('jobin47996@3mkz.com',	'Cecil',	'Adams',	4484,	'94389023',	'Kazakhstan'),
+('livato7934@3mkz.com',	'Jake',	'Gyllenhaal',	63456,	'423421111',	'South Korea'),
+('repey86866@3mkz.com',	'Stephen',	'Curry',	63456,	'421421342',	'Turkey'),
+('sisoja4145@adroh.com',	'Frank',	'Ocean',	63456,	'4234234',	'North Korea'),
+('tocamo3972@24rumen.com',	'Gustavo',	'Fring',	63456,	'42342',	'Mongolia'),
+('user.surname1@mail.kz',	'Skyler',	'White',	500,	'88005553535',	'USA'),
+('user.surname2@mail.kz',	'Walter Jr.',	'White',	500,	'88005553536',	'USA');
 
 INSERT INTO PublicServant (email, department) VALUES
 ('jobin47996@3mkz.com', 'D1'),
@@ -74,8 +74,8 @@ INSERT INTO PublicServant (email, department) VALUES
 ('livato7934@3mkz.com', 'D8'),
 ('sisoja4145@adroh.com', 'D9'),
 ('repey86866@3mkz.com', 'D10'),
-("user.surname1@mail.kz"	"D11"),
-("user.surname2@mail.kz"	"D11");
+('user.surname1@mail.kz',	'D11'),
+('user.surname2@mail.kz',	'D11');
 
 INSERT INTO Doctor (email, degree) VALUES
 ('jobin47996@3mkz.com', 'DoM'),
@@ -114,11 +114,11 @@ INSERT INTO Record (email, cname, disease_code, total_deaths, total_patients) VA
 ('livato7934@3mkz.com', 'South Korea', 'HIV', 3213211, 42342),
 ('sisoja4145@adroh.com', 'North Korea', 'AIDS', 132132,  24432),
 ('repey86866@3mkz.com', 'Turkey', 'tetanus', 312,  42342),
-("user.surname1@mail.kz",	"China",	"covid",	2222,	3333),
-("user.surname1@mail.kz",	"France",	"covid",	22223,	4444),
-("user.surname1@mail.kz",	"Mongolia",	"covid",	2223,	223),
-("user.surname1@mail.kz",	"USA",	"covid",	1221,	222),
-("user.surname2@mail.kz",	"China",	"covid",	232,	32),
-("user.surname2@mail.kz",	"Mongolia",	"covid",	3444,	33),
-("user.surname2@mail.kz",	"Russia",	"covid",	2332,	233),
-("user.surname2@mail.kz",	"USA",	"covid",	48484,	4343);
+('user.surname1@mail.kz',	'China',	'covid',	2222,	3333),
+('user.surname1@mail.kz',	'France',	'covid',	22223,	4444),
+('user.surname1@mail.kz',	'Mongolia',	'covid',	2223,	223),
+('user.surname1@mail.kz',	'USA',	'covid',	1221,	222),
+('user.surname2@mail.kz',	'China',	'covid',	232,	32),
+('user.surname2@mail.kz',	'Mongolia',	'covid',	3444,	33),
+('user.surname2@mail.kz',	'Russia',	'covid',	2332,	233),
+('user.surname2@mail.kz',	'USA',	'covid',	48484,	4343);
