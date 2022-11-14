@@ -1,4 +1,4 @@
-INSERT INTO DiseaseType (id, description) VALUES
+INSERT INTO diseasetype (id, description) VALUES
 (1, 'molecular disease'),
 (2, 'virology'),
 (3, 'cell disease'),
@@ -11,7 +11,7 @@ INSERT INTO DiseaseType (id, description) VALUES
 (10, 'mental illnesses');
 
 
-INSERT INTO Country (cname, population) VALUES
+INSERT INTO country (cname, population) VALUES
 ('Austria',	9000000),
 ('China',	1439000000),
 ('France',	65000000),
@@ -25,19 +25,19 @@ INSERT INTO Country (cname, population) VALUES
 ('UK',	67000000),
 ('USA',	331000000);
 
-INSERT INTO Disease (disease_code, pathogen, description, id) VALUES
+INSERT INTO disease (disease_code, pathogen, description, id) VALUES
 ('cancer', 'cell function', 'lethal illness', 1),
-('fungus', 'bacterial', 'curable disease', 2),
+('fungus', 'moderately bacterial', 'curable disease', 2),
 ('angina', 'bacterial', 'curable disease', 3),
 ('covid', 'virus', 'curable disease', 4),
 ('brain eating parasite', 'parasite', 'lethat 100%', 5),
-('rabies', 'virus', 'lethal', 6),
+('rabies', 'deadly virus', 'lethal', 6),
 ('erectile disfunction', 'physical', 'curable', 7),
-('HIV', 'virus', 'almost lethal', 8),
-('AIDS', 'virus', 'lethal', 9),
+('HIV', 'bad virus', 'almost lethal', 8),
+('AIDS', 'lethal virus', 'lethal', 9),
 ('tetanus', 'virus + bacteria', 'can get from rusty nails', 10);
 
-INSERT INTO Discover (cname, disease_code, first_enc_date) VALUES
+INSERT INTO discover (cname, disease_code, first_enc_date) VALUES
 ('Kazakhstan', 'cancer', '2006-02-10'),
 ('USA', 'covid', '2006-02-16'),
 ('China', 'brain eating parasite', '2006-02-17'),
@@ -49,7 +49,7 @@ INSERT INTO Discover (cname, disease_code, first_enc_date) VALUES
 ('Austria',	'angina',	'1800-02-15');
 
 
-INSERT INTO Users (email, name, surname, salary, phone, cname) VALUES
+INSERT INTO users (email, name, surname, salary, phone, cname) VALUES
 ('bahidam920@adroh.com',	'Demar',	'Derozan',	64356,	'4324213',	'China'),
 ('facikif348@3mkz.com',	'Kawhi',	'Leonard',	63456,	'4132234',	'USA'),
 ('fajoxe6837@abudat.com',	'Alla',	'Pugacheva',	4356,	'24314323',	'Russia'),
@@ -61,9 +61,11 @@ INSERT INTO Users (email, name, surname, salary, phone, cname) VALUES
 ('sisoja4145@adroh.com',	'Frank',	'Ocean',	63456,	'4234234',	'North Korea'),
 ('tocamo3972@24rumen.com',	'Gustavo',	'Fring',	63456,	'42342',	'Mongolia'),
 ('user.surname1@mail.kz',	'Skyler',	'White',	500,	'88005553535',	'USA'),
-('user.surname2@mail.kz',	'Walter Jr.',	'White',	500,	'88005553536',	'USA');
+('user.surname2@mail.kz',	'Walter Jr.',	'White',	500,	'88005553539',	'USA'),
+('nurbol@mail.kz',	'Nurbek',	'Ashimov',	6500,	'88005553537',	'Kazakhstan'),
+('antikor@mail.kz',	'Gulsim',	'Ashimova',	7500,	'88005553536',	'Kazakhstan');
 
-INSERT INTO PublicServant (email, department) VALUES
+INSERT INTO publicservant (email, department) VALUES
 ('jobin47996@3mkz.com', 'D1'),
 ('hipare5882@adroh.com', 'D2'),
 ('fajoxe6837@abudat.com', 'D3'),
@@ -77,7 +79,7 @@ INSERT INTO PublicServant (email, department) VALUES
 ('user.surname1@mail.kz',	'D11'),
 ('user.surname2@mail.kz',	'D11');
 
-INSERT INTO Doctor (email, degree) VALUES
+INSERT INTO doctor (email, degree) VALUES
 ('jobin47996@3mkz.com', 'DoM'),
 ('hipare5882@adroh.com', 'DoM'),
 ('fajoxe6837@abudat.com', 'DoOM'),
@@ -90,7 +92,7 @@ INSERT INTO Doctor (email, degree) VALUES
 ('repey86866@3mkz.com', 'DoM');
 
 
-INSERT INTO Specialize (id, email) VALUES
+INSERT INTO specialize (id, email) VALUES
 (1, 'jobin47996@3mkz.com'),
 (2, 'hipare5882@adroh.com'),
 (3, 'fajoxe6837@abudat.com'),
@@ -103,7 +105,7 @@ INSERT INTO Specialize (id, email) VALUES
 (10, 'repey86866@3mkz.com');
 
 
-INSERT INTO Record (email, cname, disease_code, total_deaths, total_patients) VALUES
+INSERT INTO record (email, cname, disease_code, total_deaths, total_patients) VALUES
 ('jobin47996@3mkz.com', 'Kazakhstan', 'cancer', 132123, 42343),
 ('hipare5882@adroh.com', 'UK', 'fungus', 3123, 234423),
 ('fajoxe6837@abudat.com', 'Russia', 'angina', 13232,  23423),

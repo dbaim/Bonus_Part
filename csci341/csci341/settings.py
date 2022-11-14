@@ -74,13 +74,25 @@ WSGI_APPLICATION = "csci341.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'desb3vi0hhsvr3',
+#         'USER': 'iuczhubleqqdqj',
+#         'PASSWORD': '9597fd8f5c57d0c3626a18aba3305e043b4e120f179b7e80329fb5fe4e702c3b',
+#         'HOST': 'ec2-44-199-22-207.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'desb3vi0hhsvr3',
-        'USER': 'iuczhubleqqdqj',
-        'PASSWORD': '9597fd8f5c57d0c3626a18aba3305e043b4e120f179b7e80329fb5fe4e702c3b',
-        'HOST': 'ec2-44-199-22-207.compute-1.amazonaws.com',
+        'NAME': 'CSCI_341_DB',
+        'USER': 'postgres',
+        'PASSWORD': 'Bruh110',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }

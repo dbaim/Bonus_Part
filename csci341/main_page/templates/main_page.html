@@ -59,6 +59,114 @@
         {% endfor %}
       </table>
 
+      <table border="1">
+        <tr>
+            <th>Country</th>
+            <th>Disease</th>
+            <th>Discovery Date</th>
+        </tr>
+        {% for result in discover %}
+        <tr>
+            <td>{{result.cname}}</td>
+            <td>{{result.id}}</td>
+            <td>{{result.first_enc_date}}</td>
+            <td><a href="edit/{{result.id}}">Edit</a></td>
+            <td><a href="delete/{{result.id}}" onclick="Are you sure you want to delete it?">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+
+<!--      <table border="1">-->
+<!--        <tr>-->
+<!--            <th>Email</th>-->
+<!--            <th>Name</th>-->
+<!--            <th>Surname</th>-->
+<!--            <th>Salary</th>-->
+<!--            <th>Phone</th>-->
+<!--            <th>Country</th>-->
+<!--        </tr>-->
+<!--        {% for result in users %}-->
+<!--        <tr>-->
+<!--            <td>{{result.email}}</td>-->
+<!--            <td>{{result.name}}</td>-->
+<!--            <td>{{result.surname}}</td>-->
+<!--            <td>{{result.salary}}</td>-->
+<!--            <td>{{result.phone}}</td>-->
+<!--            <td>{{result.cname}}</td>-->
+<!--            <td><a href="edit/{{result.email}}">Edit</a></td>-->
+<!--            <td><a href="delete/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>-->
+<!--        </tr>-->
+<!--        {% endfor %}-->
+<!--      </table>-->
+
+<!--      <table border="1">-->
+<!--        <tr>-->
+<!--            <th>Email</th>-->
+<!--            <th>Degree</th>-->
+<!--        </tr>-->
+<!--        {% for result in doctor %}-->
+<!--        <tr>-->
+<!--            <td>{{result.email}}</td>-->
+<!--            <td>{{result.degree}}</td>-->
+<!--            <td><a href="edit/{{result.email}}">Edit</a></td>-->
+<!--            <td><a href="delete/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>-->
+<!--        </tr>-->
+<!--        {% endfor %}-->
+<!--      </table>-->
+
+<!--      <table border="1">-->
+<!--        <tr>-->
+<!--            <th>Email</th>-->
+<!--            <th>Department</th>-->
+<!--        </tr>-->
+<!--        {% for result in publicservant %}-->
+<!--        <tr>-->
+<!--            <td>{{result.email}}</td>-->
+<!--            <td>{{result.department}}</td>-->
+<!--            <td><a href="edit/{{result.email}}">Edit</a></td>-->
+<!--            <td><a href="delete/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>-->
+<!--        </tr>-->
+<!--        {% endfor %}-->
+<!--      </table>-->
+
+
+<!--      <table border="1">-->
+<!--        <tr>-->
+<!--            <th>Email</th>-->
+<!--            <th>ID</th>-->
+<!--        </tr>-->
+<!--        {% for result in specialize %}-->
+<!--        <tr>-->
+<!--            <td>{{result.email}}</td>-->
+<!--            <td>{{result.id}}</td>-->
+<!--            <td><a href="edit/{{result.email}}">Edit</a></td>-->
+<!--            <td><a href="delete/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>-->
+<!--        </tr>-->
+<!--        {% endfor %}-->
+<!--      </table>-->
+
+
+<!--      <table border="1">-->
+<!--        <tr>-->
+<!--            <th>Email</th>-->
+<!--            <th>Country</th>-->
+<!--            <th>Disease Code</th>-->
+<!--            <th>Total Deaths</th>-->
+<!--            <th>Total Patients</th>-->
+<!--        </tr>-->
+<!--        {% for result in record %}-->
+<!--        <tr>-->
+<!--            <td>{{result.email}}</td>-->
+<!--            <td>{{result.cname}}</td>-->
+<!--            <td>{{result.disease_code}}</td>-->
+<!--            <td>{{result.total_deaths}}</td>-->
+<!--            <td>{{result.total_patients}}</td>-->
+<!--            <td><a href="edit/{{result.email}}">Edit</a></td>-->
+<!--            <td><a href="delete/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>-->
+<!--        </tr>-->
+<!--        {% endfor %}-->
+<!--      </table>-->
+
   </center>
 </body>
 </html>
