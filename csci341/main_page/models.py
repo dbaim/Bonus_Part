@@ -23,7 +23,7 @@ class disease(models.Model):
     disease_code = models.CharField(max_length=50)
     pathogen = models.CharField(max_length=20)
     description = models.CharField(max_length=140)
-    models.ForeignKey(diseasetype, default=None, on_delete=models.CASCADE)
+    models.ForeignKey(diseasetype, default=None, on_delete=models.CASCADE, primary_key=True)
 
     class Meta:
         managed = False
@@ -31,8 +31,8 @@ class disease(models.Model):
 
 
 class discover(models.Model):
-    cname = models.OneToOneField(country, models.DO_NOTHING, db_column='cname', primary_key=True)
-    id = models.OneToOneField(diseasetype, models.DO_NOTHING, db_column='id')
+    cname = models.OneToOneField(country, models.DO_NOTHING, db_column='cname')
+    models.ForeignKey(diseasetype, models.DO_NOTHING, db_column='disease_code')
     first_enc_date = models.DateField()
 
     class Meta:

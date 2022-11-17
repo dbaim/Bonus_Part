@@ -68,7 +68,7 @@
         {% for result in discover %}
         <tr>
             <td>{{result.cname}}</td>
-            <td>{{result.id}}</td>
+            <td>{{result.disease_code}}</td>
             <td>{{result.first_enc_date}}</td>
             <td><a href="edit/{{result.id}}">Edit</a></td>
             <td><a href="delete/{{result.id}}" onclick="Are you sure you want to delete it?">Delete</a></td>

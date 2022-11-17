@@ -21,28 +21,28 @@ Session = sessionmaker(bind=eng)
 session = Session()
 
 
-def init_db():
+def create_db():
     filepath = Path('db_init.sql')
 
     with eng.begin() as conn:
         for query in [x.strip() for x in filepath.read_text().split(';') if x.strip()]:
             conn.execute(text(query))
 
-    print('All tables were created successfully')
+    print('Tables created')
 
 
-def fill_mock_db():
+def fill_db():
     filepath = Path('fill_db.sql')
 
     with eng.connect() as conn:
         for query in [x.strip() for x in filepath.read_text().split(';') if x.strip()]:
             conn.execute(text(query))
 
-    print('All rows were inserted successfully')
+    print('Tables are filled')
 
 
-init_db()
-fill_mock_db()
+create_db()
+fill_db()
 
 
 # Query 1
