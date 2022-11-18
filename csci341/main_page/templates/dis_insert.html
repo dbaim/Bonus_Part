@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSCI 341</title>
+</head>
+<body>
+<center>
+        <h1>
+            Create
+        </h1>
+    <form method = "POST">
+            {%  csrf_token  %}
+        <table border = "1">
+
+                <tr>
+                    <td>Disease Code</td>
+                    <td><input type = "text" placeholder = "Enter disease code" name = "disease_code"> </td>
+                </tr>
+                <tr>
+                    <td>Pathogen</td>
+                    <td><input type = "text" placeholder = "Enter pathogen" name = "pathogen"> </td>
+                </tr>
+            <tr>
+                    <td>Description</td>
+                    <td><input type = "text" placeholder = "Enter description" name = "description"> </td>
+                </tr>
+            <tr>
+                    <td>ID</td>
+                    <td><input type = "number" placeholder = "Enter ID" name = "id"> </td>
+                </tr>
+            <tr>
+                    <td><input type = "submit" value = "Insert"/>
+                    <td>
+                        {%  if messages  %}
+                        {%  for mess in messages  %}
+                        <b>{{mess}}</b>
+
+                        {%  endfor  %}
+                        {%  endif  %}
+                    </td>
+                </tr>
+        </table>
+     </form>
+        <a href = "{% url 'main_page' %}">Home Page</a>
+    </center>
+</body>
+</html>

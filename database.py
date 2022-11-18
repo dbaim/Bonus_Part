@@ -17,6 +17,7 @@ def get_engine(user, passwd, host, port, db):
 eng = get_engine(config.username, config.pwd, config.hostname, config.port_id, config.database)
 base = declarative_base()
 
+
 Session = sessionmaker(bind=eng)
 session = Session()
 
@@ -25,8 +26,8 @@ def create_db():
     filepath = Path('db_init.sql')
 
     with eng.begin() as conn:
-        for query in [x.strip() for x in filepath.read_text().split(';') if x.strip()]:
-            conn.execute(text(query))
+        for q in [x.strip() for x in filepath.read_text().split(';') if x.strip()]:
+            conn.execute(text(q))
 
     print('Tables created')
 
@@ -35,17 +36,16 @@ def fill_db():
     filepath = Path('fill_db.sql')
 
     with eng.connect() as conn:
-        for query in [x.strip() for x in filepath.read_text().split(';') if x.strip()]:
-            conn.execute(text(query))
+        for q in [x.strip() for x in filepath.read_text().split(';') if x.strip()]:
+            conn.execute(text(q))
 
-    print('Tables are filled')
+    print('Tables are filled \n')
 
 
 create_db()
 fill_db()
 
 
-# Query 1
 def query_1():
     with eng.connect() as conn:
         dis = conn.execute(text("""
@@ -53,10 +53,13 @@ def query_1():
         FROM disease D, discover S
         WHERE D.disease_code = S.disease_code AND D.pathogen = 'bacterial' AND S.first_enc_date < '1990-01-01';
         """)).mappings()
-    print([{column: disease_code[column] for column in dis.keys()} for disease_code in dis])
+    print('Query 1:')
+    print('\n')
+    for k in dis:
+        print(k)
+    print('\n')
 
 
-# Query 2
 def query_2():
     with eng.connect() as conn:
         doctors = conn.execute(text("""
@@ -66,10 +69,13 @@ def query_2():
         JOIN diseasetype N ON S.id = N.id
         WHERE N.description != 'infectous disease';
         """)).mappings()
-    print([{column: name[column] for column in doctors.keys()} for name in doctors])
+    print('Query 2:')
+    print('\n')
+    for i in doctors:
+        print(i)
+    print('\n')
 
 
-# Query 3
 def query_3():
     with eng.connect() as conn:
         doctors = conn.execute(text("""
@@ -80,10 +86,13 @@ def query_3():
         GROUP BY U.name, U.surname, D.degree
         HAVING COUNT(S.id) > 1
         """)).mappings()
-    print([{column: name[column] for column in doctors.keys()} for name in doctors])
+    print('Query 3:')
+    print('\n')
+    for i in doctors:
+        print(i)
+    print('\n')
 
 
-# Query 3
 def query_4():
     with eng.connect() as conn:
         doctors = conn.execute(text("""
@@ -94,7 +103,11 @@ def query_4():
         FULL JOIN diseasetype N ON S.id = N.id
         WHERE N.description = 'virology'
         """)).mappings()
-    print([{column: name[column] for column in doctors.keys()} for name in doctors])
+    print('Query 4:')
+    print('\n')
+    for i in doctors:
+        print(i)
+    print('\n')
 
 
 # Assuming that all doctors = Public Servants, besides them in the table I have 2 people who did research on covid and
@@ -102,13 +115,17 @@ def query_4():
 def query_5():
     with eng.connect() as conn:
         doctors = conn.execute(text("""
-        SELECT D.department, D.email
+        SELECT DISTINCT D.department, COUNT(D.email)
         FROM publicservant D
         JOIN record N ON D.email = N.email
-        GROUP BY D.department, D.email
-        HAVING COUNT(N.email) > 1
+        GROUP BY D.department, D.email 
+        HAVING COUNT(D.email) > 1
         """)).mappings()
-    print([{column: name[column] for column in doctors.keys()} for name in doctors])
+    print('Query 5:')
+    print('\n')
+    for i in doctors:
+        print(i)
+    print('\n')
 
 
 def query_6():
@@ -122,6 +139,7 @@ def query_6():
         GROUP BY R.email
         HAVING COUNT(R.email) > 3)
         """))
+    print('Query 6 has been executed \n')
 
 
 def query_7():
@@ -143,6 +161,7 @@ def query_7():
         OR name like '%gul%'
         OR name like 'gul%';
         """))
+    print('Query 7 has been executed \n')
 
 
 def query_8():
@@ -151,6 +170,7 @@ def query_8():
         CREATE UNIQUE INDEX idx_pathogen
         ON disease (pathogen);
         """))
+    print('Query 8 has been executed \n')
 
 
 def query_9():
@@ -159,8 +179,12 @@ def query_9():
         SELECT R.email, U.name, D.department
         FROM record R JOIN publicservant D ON R.email = D.email JOIN users U ON U.email = D.email
         WHERE R.total_patients > 10000 AND R.total_patients < 999999
-        """)).mapping()
-    print([{column: name[column] for column in servants.keys()} for name in servants])
+        """)).mappings()
+    print('Query 9:')
+    print('\n')
+    for i in servants:
+        print(i)
+    print('\n')
 
 
 def query_10():
@@ -170,8 +194,12 @@ def query_10():
         FROM record
         ORDER BY total_patients DESC
         LIMIT 5
-        """)).mapping()
-    print([{column: name[column] for column in countries.keys()} for name in countries])
+        """)).mappings()
+    print('Query 10:')
+    print('\n')
+    for i in countries:
+        print(i)
+    print('\n')
 
 
 def query_11():
@@ -180,21 +208,25 @@ def query_11():
         SELECT R.total_patients, N.description
         FROM record R JOIN disease D ON R.disease_code = D.disease_code JOIN diseasetype N ON N.id = D.id
         GROUP BY N.description, R.total_patients
-        """)).mapping()
-    print([{column: name[column] for column in diseases.keys()} for name in diseases])
+        """)).mappings()
+    print('Query 11:')
+    print('\n')
+    for i in diseases:
+        print(i)
+    print('\n')
 
 
-# query_1()
-# query_2()
-# query_3()
-# query_4()
-# query_5()
-# query_6()
-# query_7()
-# query_8()
-# query_9()
-# query_10()
-# query_11()
+query_1()
+query_2()
+query_3()
+query_4()
+query_5()
+query_6()
+query_7()
+query_8()
+query_9()
+query_10()
+query_11()
 
 
 

@@ -9,7 +9,8 @@
     <h1>CSCI 341 Bonus Assignment</h1>
     <h3>Made by Dias Baimukhanov (ID:201941183)</h3>
     <hr/>
-
+      <h2>Country</h2>
+      <a href = "{% url 'insert1' %}">Create New Country</a>
     <table border="1">
         <tr>
             <th>Country</th>
@@ -20,11 +21,13 @@
             <td>{{result.cname}}</td>
             <td>{{result.population}}</td>
             <td><a href="edit/{{result.cname}}">Edit</a></td>
-            <td><a href="delete/{{result.cname}}" onclick="Are you sure you want to delete it?">Delete</a></td>
+            <td><a href="delete1/{{result.cname}}" onclick="Are you sure you want to delete it?">Delete</a></td>
         </tr>
         {% endfor %}
     </table>
 
+      <h2>Disease Type</h2>
+      <a href = "{% url 'insert2' %}">Create New Disease Type</a>
       <table border="1">
         <tr>
             <th>ID</th>
@@ -35,11 +38,12 @@
             <td>{{result.id}}</td>
             <td>{{result.description}}</td>
             <td><a href="edit/{{result1.id}}">Edit</a></td>
-            <td><a href="delete/{{result1.id}}" onclick="Are you sure you want to delete it?">Delete</a></td>
+            <td><a href="delete2/{{result.id}}" onclick="Are you sure you want to delete it?">Delete</a></td>
         </tr>
         {% endfor %}
       </table>
 
+      <h2>Disease</h2>
       <table border="1">
         <tr>
             <th>Disease Code</th>
@@ -52,13 +56,14 @@
             <td>{{result.disease_code}}</td>
             <td>{{result.pathogen}}</td>
             <td>{{result.description}}</td>
-            <td>{{result.id}}</td>
-            <td><a href="edit/{{result.id}}">Edit</a></td>
-            <td><a href="delete/{{result.id}}" onclick="Are you sure you want to delete it?">Delete</a></td>
+            <td>{{result.id.id}}</td>
+            <td><a href="edit/{{result.disease_code}}">Edit</a></td>
+            <td><a href="delete3/{{result.disease_code}}" onclick="Are you sure you want to delete it?">Delete</a></td>
         </tr>
         {% endfor %}
       </table>
 
+      <h2>Discover</h2>
       <table border="1">
         <tr>
             <th>Country</th>
@@ -67,105 +72,108 @@
         </tr>
         {% for result in discover %}
         <tr>
-            <td>{{result.cname}}</td>
-            <td>{{result.disease_code}}</td>
+            <td>{{result.cname.cname}}</td>
+            <td>{{result.disease_code.disease_code}}</td>
             <td>{{result.first_enc_date}}</td>
-            <td><a href="edit/{{result.id}}">Edit</a></td>
-            <td><a href="delete/{{result.id}}" onclick="Are you sure you want to delete it?">Delete</a></td>
+            <td><a href="edit/{{result.disease_code}}">Edit</a></td>
+            <td><a href="delete4/{{result.disease_code}}" onclick="Are you sure you want to delete it?">Delete</a></td>
         </tr>
         {% endfor %}
       </table>
 
-<!--      <table border="1">-->
-<!--        <tr>-->
-<!--            <th>Email</th>-->
-<!--            <th>Name</th>-->
-<!--            <th>Surname</th>-->
-<!--            <th>Salary</th>-->
-<!--            <th>Phone</th>-->
-<!--            <th>Country</th>-->
-<!--        </tr>-->
-<!--        {% for result in users %}-->
-<!--        <tr>-->
-<!--            <td>{{result.email}}</td>-->
-<!--            <td>{{result.name}}</td>-->
-<!--            <td>{{result.surname}}</td>-->
-<!--            <td>{{result.salary}}</td>-->
-<!--            <td>{{result.phone}}</td>-->
-<!--            <td>{{result.cname}}</td>-->
-<!--            <td><a href="edit/{{result.email}}">Edit</a></td>-->
-<!--            <td><a href="delete/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>-->
-<!--        </tr>-->
-<!--        {% endfor %}-->
-<!--      </table>-->
+      <h2>Users</h2>
+      <table border="1">
+        <tr>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Salary</th>
+            <th>Phone</th>
+            <th>Country</th>
+        </tr>
+        {% for result in users %}
+        <tr>
+            <td>{{result.email}}</td>
+            <td>{{result.name}}</td>
+            <td>{{result.surname}}</td>
+            <td>{{result.salary}}</td>
+            <td>{{result.phone}}</td>
+            <td>{{result.cname.cname}}</td>
+            <td><a href="edit/{{result.email}}">Edit</a></td>
+            <td><a href="delete5/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </table>
 
-<!--      <table border="1">-->
-<!--        <tr>-->
-<!--            <th>Email</th>-->
-<!--            <th>Degree</th>-->
-<!--        </tr>-->
-<!--        {% for result in doctor %}-->
-<!--        <tr>-->
-<!--            <td>{{result.email}}</td>-->
-<!--            <td>{{result.degree}}</td>-->
-<!--            <td><a href="edit/{{result.email}}">Edit</a></td>-->
-<!--            <td><a href="delete/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>-->
-<!--        </tr>-->
-<!--        {% endfor %}-->
-<!--      </table>-->
+      <h2>Doctor</h2>
+      <table border="1">
+        <tr>
+            <th>Email</th>
+            <th>Degree</th>
+        </tr>
+        {% for result in doctor %}
+        <tr>
+            <td>{{result.email.email}}</td>
+            <td>{{result.degree}}</td>
+            <td><a href="edit/{{result.email}}">Edit</a></td>
+            <td><a href="delete6/{{result.email" onclick="Are you sure you want to delete it?">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </table>
 
-<!--      <table border="1">-->
-<!--        <tr>-->
-<!--            <th>Email</th>-->
-<!--            <th>Department</th>-->
-<!--        </tr>-->
-<!--        {% for result in publicservant %}-->
-<!--        <tr>-->
-<!--            <td>{{result.email}}</td>-->
-<!--            <td>{{result.department}}</td>-->
-<!--            <td><a href="edit/{{result.email}}">Edit</a></td>-->
-<!--            <td><a href="delete/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>-->
-<!--        </tr>-->
-<!--        {% endfor %}-->
-<!--      </table>-->
+    <h2>Public Servant</h2>
+      <table border="1">
+        <tr>
+            <th>Email</th>
+            <th>Department</th>
+        </tr>
+        {% for result in publicservant %}
+        <tr>
+            <td>{{result.email.email}}</td>
+            <td>{{result.department}}</td>
+            <td><a href="edit/{{result.email}}">Edit</a></td>
+            <td><a href="delete7/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </table>
 
+      <h2>Specialize</h2>
+      <table border="1">
+        <tr>
+            <th>Email</th>
+            <th>ID</th>
+        </tr>
+        {% for result in specialize %}
+        <tr>
+            <td>{{result.email.email}}</td>
+            <td>{{result.id.id}}</td>
+            <td><a href="edit/{{result.email}}">Edit</a></td>
+            <td><a href="delete8/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </table>
 
-<!--      <table border="1">-->
-<!--        <tr>-->
-<!--            <th>Email</th>-->
-<!--            <th>ID</th>-->
-<!--        </tr>-->
-<!--        {% for result in specialize %}-->
-<!--        <tr>-->
-<!--            <td>{{result.email}}</td>-->
-<!--            <td>{{result.id}}</td>-->
-<!--            <td><a href="edit/{{result.email}}">Edit</a></td>-->
-<!--            <td><a href="delete/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>-->
-<!--        </tr>-->
-<!--        {% endfor %}-->
-<!--      </table>-->
-
-
-<!--      <table border="1">-->
-<!--        <tr>-->
-<!--            <th>Email</th>-->
-<!--            <th>Country</th>-->
-<!--            <th>Disease Code</th>-->
-<!--            <th>Total Deaths</th>-->
-<!--            <th>Total Patients</th>-->
-<!--        </tr>-->
-<!--        {% for result in record %}-->
-<!--        <tr>-->
-<!--            <td>{{result.email}}</td>-->
-<!--            <td>{{result.cname}}</td>-->
-<!--            <td>{{result.disease_code}}</td>-->
-<!--            <td>{{result.total_deaths}}</td>-->
-<!--            <td>{{result.total_patients}}</td>-->
-<!--            <td><a href="edit/{{result.email}}">Edit</a></td>-->
-<!--            <td><a href="delete/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>-->
-<!--        </tr>-->
-<!--        {% endfor %}-->
-<!--      </table>-->
+      <h2>Record</h2>
+      <table border="1">
+        <tr>
+            <th>Email</th>
+            <th>Country</th>
+            <th>Disease Code</th>
+            <th>Total Deaths</th>
+            <th>Total Patients</th>
+        </tr>
+        {% for result in record %}
+        <tr>
+            <td>{{result.email.email}}</td>
+            <td>{{result.cname.cname}}</td>
+            <td>{{result.disease_code.disease_code}}</td>
+            <td>{{result.total_deaths}}</td>
+            <td>{{result.total_patients}}</td>
+            <td><a href="edit/{{result.email}}">Edit</a></td>
+            <td><a href="delete9/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </table>
 
   </center>
 </body>

@@ -22,12 +22,12 @@ CREATE TABLE disease (
 	disease_code   varchar(50) PRIMARY KEY,
 	pathogen       varchar(20) NOT NULL,
 	description    varchar(140) NOT NULL,
-	id             integer REFERENCES diseaseType(id) NOT NULL
+	id             integer REFERENCES diseaseType(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE discover (
-	cname          varchar(50) REFERENCES country(cname),
-	disease_code   varchar(50) REFERENCES disease(disease_code),
+	cname          varchar(50) REFERENCES country(cname) ON DELETE CASCADE,
+	disease_code   varchar(50) REFERENCES disease(disease_code) ON DELETE CASCADE,
 	first_enc_date date NOT NULL,
 	PRIMARY KEY (cname, disease_code)
 );
@@ -38,29 +38,29 @@ CREATE TABLE users (
 	surname        varchar(40) NOT NULL,
 	salary         integer NOT NULL,
 	phone          varchar(20) UNIQUE NOT NULL,
-	cname          varchar(50) REFERENCES country(cname) NOT NULL
+	cname          varchar(50) REFERENCES country(cname) ON DELETE CASCADE
 );
 
 CREATE TABLE publicservant (
-	email          varchar(60) PRIMARY KEY REFERENCES users(email),
+	email          varchar(60) PRIMARY KEY REFERENCES users(email) ON DELETE CASCADE,
 	department     varchar(50) NOT NULL
 );
 
 CREATE TABLE doctor (
-	email          varchar(60) PRIMARY KEY REFERENCES users(email),
+	email          varchar(60) PRIMARY KEY REFERENCES users(email) ON DELETE CASCADE,
 	degree         varchar(20) NOT NULL
 );
 
 CREATE TABLE specialize (
-	id             integer REFERENCES diseasetype(id),
-	email          varchar(60) REFERENCES doctor(email),
+	id             integer REFERENCES diseasetype(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	email          varchar(60) REFERENCES doctor(email) ON DELETE CASCADE,
 	PRIMARY KEY (id, email)
 );
 
 CREATE TABLE record (
-	email          varchar(60) REFERENCES publicservant(email),
-	cname          varchar(50) REFERENCES country(cname),
-	disease_code   varchar(50) REFERENCES disease(disease_code),
+	email          varchar(60) REFERENCES publicservant(email) ON DELETE CASCADE,
+	cname          varchar(50) REFERENCES country(cname)  ON DELETE CASCADE,
+	disease_code   varchar(50) REFERENCES disease(disease_code) ON DELETE CASCADE,
 	total_deaths   integer NOT NULL,
 	total_patients integer NOT NULL,
 	PRIMARY KEY (email, cname, disease_code)

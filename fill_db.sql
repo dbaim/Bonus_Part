@@ -94,7 +94,9 @@ INSERT INTO doctor (email, degree) VALUES
 
 INSERT INTO specialize (id, email) VALUES
 (1, 'jobin47996@3mkz.com'),
+(1, 'hipare5882@adroh.com'),
 (2, 'hipare5882@adroh.com'),
+(2, 'facikif348@3mkz.com'),
 (3, 'fajoxe6837@abudat.com'),
 (4, 'facikif348@3mkz.com'),
 (5, 'bahidam920@adroh.com'),

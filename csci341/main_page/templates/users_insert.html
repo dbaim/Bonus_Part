@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSCI 341</title>
+</head>
+<body>
+<center>
+        <h1>
+            Create
+        </h1>
+     <form method = "POST">
+            {%  csrf_token  %}
+        <table border = "1">
+
+                <tr>
+                    <td>Email</td>
+                    <td><input type = "text" placeholder = "Enter email" name = "email"> </td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td><input type = "text" placeholder = "Enter name" name = "name"> </td>
+                </tr>
+            <tr>
+                    <td>Surname</td>
+                    <td><input type = "text" placeholder = "Enter surname" name = "surname"> </td>
+                </tr>
+            <tr>
+                    <td>Salary</td>
+                    <td><input type = "text" placeholder = "Enter salary" name = "salary"> </td>
+                </tr>
+            <tr>
+                    <td>Phone</td>
+                    <td><input type = "text" placeholder = "Enter phone" name = "phone"> </td>
+                </tr>
+
+            <tr>
+                    <td>Country</td>
+                    <td><input type = "text" placeholder = "Enter country" name = "cname"> </td>
+                </tr>
+            <tr>
+                    <td><input type = "submit" value = "Insert"/>
+                    <td>
+                        {%  if messages  %}
+                        {%  for mess in messages  %}
+                        <b>{{mess}}</b>
+
+                        {%  endfor  %}
+                        {%  endif  %}
+                    </td>
+                </tr>
+        </table>
+     </form>
+        <a href = "{% url 'main_page' %}">Home Page</a>
+    </center>
+</body>
+</html>

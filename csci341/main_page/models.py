@@ -1,42 +1,38 @@
 from django.db import models
 
 
-class diseasetype(models.Model):
-    id = models.IntegerField(primary_key=True)
-    description = models.CharField(max_length=140)
-
-    class Meta:
-        managed = False
-        db_table = "diseasetype"
-
-
 class country(models.Model):
     cname = models.CharField(max_length=50, primary_key=True)
     population = models.BigIntegerField()
 
     class Meta:
-        managed = False
         db_table = "country"
 
 
-class disease(models.Model):
-    disease_code = models.CharField(max_length=50)
-    pathogen = models.CharField(max_length=20)
+class diseasetype(models.Model):
+    id = models.IntegerField(primary_key=True)
     description = models.CharField(max_length=140)
-    models.ForeignKey(diseasetype, default=None, on_delete=models.CASCADE, primary_key=True)
 
     class Meta:
-        managed = False
+        db_table = "diseasetype"
+
+
+class disease(models.Model):
+    disease_code = models.CharField(max_length=50, primary_key=True)
+    pathogen = models.CharField(max_length=20)
+    description = models.CharField(max_length=140)
+    id = models.ForeignKey(diseasetype, db_column='id', default=None, on_delete=models.CASCADE)
+
+    class Meta:
         db_table = "disease"
 
 
 class discover(models.Model):
-    cname = models.OneToOneField(country, models.DO_NOTHING, db_column='cname')
-    models.ForeignKey(diseasetype, models.DO_NOTHING, db_column='disease_code')
+    cname = models.ForeignKey(country, db_column='cname', on_delete=models.CASCADE)
+    disease_code = models.OneToOneField(disease, db_column='disease_code', on_delete=models.CASCADE, primary_key=True)
     first_enc_date = models.DateField()
 
     class Meta:
-        managed = False
         db_table = "discover"
 
 
@@ -46,14 +42,14 @@ class users(models.Model):
     surname = models.CharField(max_length=40)
     salary = models.IntegerField()
     phone = models.CharField(max_length=20)
-    models.ForeignKey(country, on_delete=models.CASCADE)
+    cname = models.ForeignKey(country, db_column='cname', on_delete=models.CASCADE)
 
     class Meta:
         db_table = "users"
 
 
 class doctor(models.Model):
-    email = models.ForeignKey(users, on_delete=models.CASCADE)
+    email = models.ForeignKey(users, db_column='email', on_delete=models.CASCADE, primary_key=True)
     degree = models.CharField(max_length=20)
 
     class Meta:
@@ -61,7 +57,7 @@ class doctor(models.Model):
 
 
 class publicservant(models.Model):
-    email = models.ForeignKey(users, on_delete=models.CASCADE)
+    email = models.ForeignKey(users, db_column='email', on_delete=models.CASCADE, primary_key=True)
     department = models.CharField(max_length=50)
 
     class Meta:
@@ -69,9 +65,9 @@ class publicservant(models.Model):
 
 
 class record(models.Model):
-    email = models.ForeignKey(users, on_delete=models.CASCADE)
-    cname = models.ForeignKey(country, on_delete=models.CASCADE)
-    disease_code = models.ForeignKey(disease, on_delete=models.CASCADE)
+    email = models.ForeignKey(users, db_column='email', on_delete=models.CASCADE, primary_key=True)
+    cname = models.OneToOneField(country, db_column='cname', on_delete=models.CASCADE)
+    disease_code = models.OneToOneField(disease, db_column='disease_code', on_delete=models.CASCADE)
     total_deaths = models.IntegerField()
     total_patients = models.IntegerField()
 
@@ -80,8 +76,8 @@ class record(models.Model):
 
 
 class specialize(models.Model):
-    models.ForeignKey(diseasetype, default=None, on_delete=models.CASCADE, primary_key=True)
-    email = models.ForeignKey(users, on_delete=models.CASCADE)
+    id = models.ForeignKey(diseasetype, db_column='id', default=None, on_delete=models.CASCADE)
+    email = models.OneToOneField(users, db_column='email', on_delete=models.CASCADE, primary_key=True)
 
     class Meta:
         db_table = "specialize"

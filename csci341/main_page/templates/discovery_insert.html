@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSCI 341</title>
+</head>
+<body>
+<center>
+        <h1>
+            Create
+        </h1>
+     <form method = "POST">
+            {%  csrf_token  %}
+        <table border = "1">
+
+                <tr>
+                    <td>Country</td>
+                    <td><input type = "text" placeholder = "Enter country" name = "cname"> </td>
+                </tr>
+                <tr>
+                    <td>Disease</td>
+                    <td><input type = "text" placeholder = "Enter disease" name = "disease_code"> </td>
+                </tr>
+            <tr>
+                    <td>Discovery Date</td>
+                    <td><input type = "date" placeholder = "Enter discovery date" name = "first_enc_date"> </td>
+                </tr>
+            <tr>
+                    <td><input type = "submit" value = "Insert"/>
+                    <td>
+                        {%  if messages  %}
+                        {%  for mess in messages  %}
+                        <b>{{mess}}</b>
+
+                        {%  endfor  %}
+                        {%  endif  %}
+                    </td>
+                </tr>
+        </table>
+     </form>
+        <a href = "{% url 'main_page' %}">Home Page</a>
+    </center>
+</body>
+</html>
