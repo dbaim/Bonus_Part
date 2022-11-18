@@ -178,7 +178,8 @@ def query_9():
         servants = conn.execute(text("""
         SELECT R.email, U.name, D.department
         FROM record R JOIN publicservant D ON R.email = D.email JOIN users U ON U.email = D.email
-        WHERE R.total_patients > 10000 AND R.total_patients < 999999
+        GROUP BY U.name, D.department, R.email
+        HAVING SUM(R.total_patients) > 10000 AND SUM(R.total_patients) < 999999
         """)).mappings()
     print('Query 9:')
     print('\n')
@@ -205,9 +206,9 @@ def query_10():
 def query_11():
     with eng.connect() as conn:
         diseases = conn.execute(text("""
-        SELECT R.total_patients, N.description
+        SELECT N.description, SUM(R.total_patients)
         FROM record R JOIN disease D ON R.disease_code = D.disease_code JOIN diseasetype N ON N.id = D.id
-        GROUP BY N.description, R.total_patients
+        GROUP BY N.description
         """)).mappings()
     print('Query 11:')
     print('\n')
