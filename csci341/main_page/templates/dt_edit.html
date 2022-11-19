@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSCI 341</title>
+</head>
+<body>
+<h1>Edit page</h1>
+   <form method = "POST" action = "/update2/{{diseasetype.id}}">
+            {%csrf_token%}
+
+        <table border = "1">
+            <tr>
+                <td>ID</td>
+                <td><input type="text" name="id" value="{{diseasetype.id}}"></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><input type="text" name="description" value="{{diseasetype.description}}"   ></td>
+            </tr>
+          <tr>
+                          <td><input type="submit" value = "Update record"></td>
+                <td>
+                    {%  if messages  %}
+                    {%  for mess in messages  %}
+                    <b>{{mess}}</b>
+
+                    {%  endfor  %}
+                    {%  endif  %}
+                </td>
+            </tr>
+        </table>
+
+        <a href = "{% url 'main_page' %}">Home Page</a>
+    </form>
+</body>
+</html>

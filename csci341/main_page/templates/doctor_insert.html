@@ -9,6 +9,34 @@
         <h1>
             Create
         </h1>
+    <h2>
+            Please note that you cannot create non-existing email
+        </h2>
+     <form method = "POST">
+            {%  csrf_token  %}
+        <table border = "1">
+
+                <tr>
+                    <td>Email</td>
+                    <td><input type = "text" placeholder = "Enter email" name = "email"> </td>
+                </tr>
+                <tr>
+                    <td>Degree</td>
+                    <td><input type = "text" placeholder = "Enter degree" name = "degree"> </td>
+                </tr>
+            <tr>
+                    <td><input type = "submit" value = "Insert"/>
+                    <td>
+                        {%  if messages  %}
+                        {%  for mess in messages  %}
+                        <b>{{mess}}</b>
+
+                        {%  endfor  %}
+                        {%  endif  %}
+                    </td>
+                </tr>
+        </table>
+     </form>
         <a href = "{% url 'main_page' %}">Home Page</a>
     </center>
 </body>

@@ -20,7 +20,7 @@
         <tr>
             <td>{{result.cname}}</td>
             <td>{{result.population}}</td>
-            <td><a href="edit/{{result.cname}}">Edit</a></td>
+            <td><a href="edit1/{{result.cname}}">Edit</a></td>
             <td><a href="delete1/{{result.cname}}" onclick="Are you sure you want to delete it?">Delete</a></td>
         </tr>
         {% endfor %}
@@ -37,13 +37,14 @@
         <tr>
             <td>{{result.id}}</td>
             <td>{{result.description}}</td>
-            <td><a href="edit/{{result1.id}}">Edit</a></td>
+            <td><a href="edit2/{{result.id}}">Edit</a></td>
             <td><a href="delete2/{{result.id}}" onclick="Are you sure you want to delete it?">Delete</a></td>
         </tr>
         {% endfor %}
       </table>
 
       <h2>Disease</h2>
+      <a href = "{% url 'insert3' %}">Create New Disease</a>
       <table border="1">
         <tr>
             <th>Disease Code</th>
@@ -57,13 +58,14 @@
             <td>{{result.pathogen}}</td>
             <td>{{result.description}}</td>
             <td>{{result.id.id}}</td>
-            <td><a href="edit/{{result.disease_code}}">Edit</a></td>
+            <td><a href="edit3/{{result.id}}">Edit</a></td>
             <td><a href="delete3/{{result.disease_code}}" onclick="Are you sure you want to delete it?">Delete</a></td>
         </tr>
         {% endfor %}
       </table>
 
       <h2>Discover</h2>
+      <a href = "{% url 'insert4' %}">Create New Discovery</a>
       <table border="1">
         <tr>
             <th>Country</th>
@@ -75,13 +77,14 @@
             <td>{{result.cname.cname}}</td>
             <td>{{result.disease_code.disease_code}}</td>
             <td>{{result.first_enc_date}}</td>
-            <td><a href="edit/{{result.disease_code}}">Edit</a></td>
+            <td><a href="edit4/{{result.disease_code}}">Edit</a></td>
             <td><a href="delete4/{{result.disease_code}}" onclick="Are you sure you want to delete it?">Delete</a></td>
         </tr>
         {% endfor %}
       </table>
 
       <h2>Users</h2>
+      <a href = "{% url 'insert5' %}">Create New User</a>
       <table border="1">
         <tr>
             <th>Email</th>
@@ -99,13 +102,14 @@
             <td>{{result.salary}}</td>
             <td>{{result.phone}}</td>
             <td>{{result.cname.cname}}</td>
-            <td><a href="edit/{{result.email}}">Edit</a></td>
+            <td><a href="edit5/{{result.email}}">Edit</a></td>
             <td><a href="delete5/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>
         </tr>
         {% endfor %}
       </table>
 
       <h2>Doctor</h2>
+      <a href = "{% url 'insert6' %}">Create New Doctor</a>
       <table border="1">
         <tr>
             <th>Email</th>
@@ -115,13 +119,14 @@
         <tr>
             <td>{{result.email.email}}</td>
             <td>{{result.degree}}</td>
-            <td><a href="edit/{{result.email}}">Edit</a></td>
+            <td><a href="edit6/{{result.email}}">Edit</a></td>
             <td><a href="delete6/{{result.email" onclick="Are you sure you want to delete it?">Delete</a></td>
         </tr>
         {% endfor %}
       </table>
 
     <h2>Public Servant</h2>
+      <a href = "{% url 'insert7' %}">Create New Public Servant</a>
       <table border="1">
         <tr>
             <th>Email</th>
@@ -131,13 +136,14 @@
         <tr>
             <td>{{result.email.email}}</td>
             <td>{{result.department}}</td>
-            <td><a href="edit/{{result.email}}">Edit</a></td>
+            <td><a href="edit7/{{result.email}}">Edit</a></td>
             <td><a href="delete7/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>
         </tr>
         {% endfor %}
       </table>
 
       <h2>Specialize</h2>
+      <a href = "{% url 'insert9' %}">Create New Specialize</a>
       <table border="1">
         <tr>
             <th>Email</th>
@@ -147,13 +153,14 @@
         <tr>
             <td>{{result.email.email}}</td>
             <td>{{result.id.id}}</td>
-            <td><a href="edit/{{result.email}}">Edit</a></td>
+            <td><a href="edit8/{{result.email}}">Edit</a></td>
             <td><a href="delete8/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>
         </tr>
         {% endfor %}
       </table>
 
       <h2>Record</h2>
+      <a href = "{% url 'insert8' %}">Create New Record</a>
       <table border="1">
         <tr>
             <th>Email</th>
@@ -169,7 +176,7 @@
             <td>{{result.disease_code.disease_code}}</td>
             <td>{{result.total_deaths}}</td>
             <td>{{result.total_patients}}</td>
-            <td><a href="edit/{{result.email}}">Edit</a></td>
+            <td><a href="edit9/{{result.email}}">Edit</a></td>
             <td><a href="delete9/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>
         </tr>
         {% endfor %}
