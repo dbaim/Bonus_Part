@@ -179,7 +179,7 @@ def query_9():
         SELECT R.email, U.name, D.department
         FROM record R JOIN publicservant D ON R.email = D.email JOIN users U ON U.email = D.email
         GROUP BY U.name, D.department, R.email
-        HAVING SUM(R.total_patients) > 10000 AND SUM(R.total_patients) < 999999
+        HAVING SUM(R.total_patients) > 100000 AND SUM(R.total_patients) < 9999999
         """)).mappings()
     print('Query 9:')
     print('\n')

@@ -25,6 +25,7 @@ INSERT INTO country (cname, population) VALUES
 ('UK',	67000000),
 ('USA',	331000000);
 
+
 INSERT INTO disease (disease_code, pathogen, description, id) VALUES
 ('cancer', 'cell function', 'lethal illness', 1),
 ('fungus', 'moderately bacterial', 'curable disease', 2),
