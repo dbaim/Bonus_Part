@@ -6,25 +6,21 @@
 </head>
 <body>
 <h1>Edit page</h1>
-   <form method = "POST" action = "/update4/{{discover.disease_code}}">
+   <form method = "POST" action = "/update4/{{discover.disease_code.disease_code}}">
             {%csrf_token%}
 
         <table border = "1">
             <tr>
                 <td>Country</td>
-                <td><input type="text" name="disease_code" value="{{disease.disease_code}}"></td>
+                <td><input type="text" name="cname" value="{{discover.cname.cname}}"></td>
             </tr>
           <tr>
-                <td>Pathogen</td>
-                <td><input type="text" name="pathogen" value="{{disease.pathogen}}"></td>
+                <td>Disease</td>
+                <td><input type="text" name="disease_code" value="{{discover.disease_code.disease_code}}"></td>
             </tr>
             <tr>
-                <td>Description</td>
-                <td><input type="text" name="description" value="{{disease.description}}"   ></td>
-            </tr>
-          <tr>
-                <td>ID</td>
-                <td><input type="text" name="id" value="{{disease.id}}"   ></td>
+                <td>Discovery Date</td>
+                <td><input type="date" name="first_enc_date" value="{{discover.first_enc_date}}"   ></td>
             </tr>
           <tr>
                           <td><input type="submit" value = "Update record"></td>

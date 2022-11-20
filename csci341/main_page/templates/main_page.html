@@ -58,7 +58,7 @@
             <td>{{result.pathogen}}</td>
             <td>{{result.description}}</td>
             <td>{{result.id.id}}</td>
-            <td><a href="edit3/{{result.id}}">Edit</a></td>
+            <td><a href="edit3/{{result.disease_code}}">Edit</a></td>
             <td><a href="delete3/{{result.disease_code}}" onclick="Are you sure you want to delete it?">Delete</a></td>
         </tr>
         {% endfor %}
@@ -77,8 +77,8 @@
             <td>{{result.cname.cname}}</td>
             <td>{{result.disease_code.disease_code}}</td>
             <td>{{result.first_enc_date}}</td>
-            <td><a href="edit4/{{result.disease_code}}">Edit</a></td>
-            <td><a href="delete4/{{result.disease_code}}" onclick="Are you sure you want to delete it?">Delete</a></td>
+            <td><a href="edit4/{{result.disease_code.disease_code}}">Edit</a></td>
+            <td><a href="delete4/{{result.disease_code.disease_code}}" onclick="Are you sure you want to delete it?">Delete</a></td>
         </tr>
         {% endfor %}
       </table>
@@ -119,8 +119,8 @@
         <tr>
             <td>{{result.email.email}}</td>
             <td>{{result.degree}}</td>
-            <td><a href="edit6/{{result.email}}">Edit</a></td>
-            <td><a href="delete6/{{result.email" onclick="Are you sure you want to delete it?">Delete</a></td>
+            <td><a href="edit6/{{result.email.email}}">Edit</a></td>
+            <td><a href="delete6/{{result.email.email" onclick="Are you sure you want to delete it?">Delete</a></td>
         </tr>
         {% endfor %}
       </table>
@@ -136,8 +136,8 @@
         <tr>
             <td>{{result.email.email}}</td>
             <td>{{result.department}}</td>
-            <td><a href="edit7/{{result.email}}">Edit</a></td>
-            <td><a href="delete7/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>
+            <td><a href="edit7/{{result.email.email}}">Edit</a></td>
+            <td><a href="delete7/{{result.email.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>
         </tr>
         {% endfor %}
       </table>
@@ -153,8 +153,8 @@
         <tr>
             <td>{{result.email.email}}</td>
             <td>{{result.id.id}}</td>
-            <td><a href="edit8/{{result.email}}">Edit</a></td>
-            <td><a href="delete8/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>
+<!--            <td><a href="edit8/{{result.email.email}}">Edit</a></td>-->
+            <td><a href="delete8/{{result.email.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>
         </tr>
         {% endfor %}
       </table>
@@ -176,8 +176,8 @@
             <td>{{result.disease_code.disease_code}}</td>
             <td>{{result.total_deaths}}</td>
             <td>{{result.total_patients}}</td>
-            <td><a href="edit9/{{result.email}}">Edit</a></td>
-            <td><a href="delete9/{{result.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>
+            <td><a href="edit9/{{result.email.email}}">Edit</a></td>
+            <td><a href="delete9/{{result.email.email}}" onclick="Are you sure you want to delete it?">Delete</a></td>
         </tr>
         {% endfor %}
       </table>

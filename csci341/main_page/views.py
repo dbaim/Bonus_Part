@@ -334,13 +334,13 @@ def delete7(request, email):
 
 
 def delete8(request, email):
-    deleterecord = models.record.objects.get(email=email)
+    deleterecord = models.specialize.objects.get(email=email)
     deleterecord.delete()
     return render(request, "delete.html")
 
 
 def delete9(request, email):
-    deleterecord = models.specialize.objects.get(email=email)
+    deleterecord = models.record.objects.filter(email=email)
     deleterecord.delete()
     return render(request, "delete.html")
 

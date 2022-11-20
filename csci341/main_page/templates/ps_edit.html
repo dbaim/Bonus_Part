@@ -2,9 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>CSCI 341</title>
 </head>
 <body>
+<center>
+        <h1>
+            Edit page
+        </h1>
+    <h2>
+            Please note that you cannot update email
+        </h2>
+     <form method = "POST" action="/update7/{{publicservant.email.email}}">
+            {%  csrf_token  %}
+        <table border = "1">
 
+                <tr>
+                    <td>Email</td>
+                    <td><input type = "text" name = "email" value="{{publicservant.email.email}}"> </td>
+                </tr>
+                <tr>
+                    <td>Department</td>
+                    <td><input type = "text" name = "department" value= "{{publicservant.department}}"> </td>
+                </tr>
+            <tr>
+                    <td><input type = "submit" value = "Update"/>
+                    <td>
+                        {%  if messages  %}
+                        {%  for mess in messages  %}
+                        <b>{{mess}}</b>
+
+                        {%  endfor  %}
+                        {%  endif  %}
+                    </td>
+                </tr>
+        </table>
+     </form>
+        <a href = "{% url 'main_page' %}">Home Page</a>
+    </center>
 </body>
 </html>
