@@ -284,7 +284,7 @@ def edit9(request, email):
 
 
 def update9(request, email):
-    UpdateTable = models.record.objects.get(email=email)
+    UpdateTable = models.record.objects.filter(email=email)
     form = recForms(request.POST, instance=UpdateTable)
     if form.is_valid():
         form.save()
