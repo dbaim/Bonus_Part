@@ -89,6 +89,7 @@ def insert5(request):
             saverecord.name = request.POST.get('name')
             saverecord.surname = request.POST.get('salary')
             saverecord.phone = request.POST.get('phone')
+            saverecord.salary = request.POST.get('salary')
             temp1.cname = request.POST.get('cname')
             saverecord.cname = temp1
             saverecord.save()
