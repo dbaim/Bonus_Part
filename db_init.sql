@@ -52,7 +52,7 @@ CREATE TABLE doctor (
 );
 
 CREATE TABLE specialize (
-	id             integer REFERENCES diseasetype(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	id             integer REFERENCES diseasetype(id) ON DELETE CASCADE,
 	email          varchar(60) REFERENCES doctor(email) ON DELETE CASCADE,
 	PRIMARY KEY (id, email)
 );
