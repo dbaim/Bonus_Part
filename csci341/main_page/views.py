@@ -317,25 +317,25 @@ def delete4(request, disease_code):
 
 
 def delete5(request, email):
-    deleterecord = models.users.objects.get(email=email)
+    deleterecord = models.users.objects.filter(email=email)
     deleterecord.delete()
     return render(request, "delete.html")
 
 
 def delete6(request, email):
-    deleterecord = models.doctor.objects.get(email=email)
+    deleterecord = models.doctor.objects.filter(email=email)
     deleterecord.delete()
     return render(request, "delete.html")
 
 
 def delete7(request, email):
-    deleterecord = models.publicservant.objects.get(email=email)
+    deleterecord = models.publicservant.objects.filter(email=email)
     deleterecord.delete()
     return render(request, "delete.html")
 
 
 def delete8(request, email):
-    deleterecord = models.specialize.objects.get(email=email)
+    deleterecord = models.specialize.objects.filter(email=email)
     deleterecord.delete()
     return render(request, "delete.html")
 
